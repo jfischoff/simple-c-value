@@ -1,0 +1,31 @@
+Test suite tests: RUNNING...
+ToCValue:
+  propertyToCValue_0: [OK, passed 100 tests]
+  propertyToCValue_1: [OK, passed 100 tests]
+  propertyToCValue_2: [OK, passed 100 tests]
+  propertyToCValue_3: [OK, passed 100 tests]
+  propertyToCValue_4: [OK, passed 100 tests]
+  propertyToCValue_5: [OK, passed 100 tests]
+  propertyToCValue_6: [OK, passed 100 tests]
+  propertyToCValue_7: [OK, passed 100 tests]
+  propertyToCValue_8: [OK, passed 100 tests]
+  propertyToCValue_9: [OK, passed 100 tests]
+  propertyToCValue_10: [OK, passed 100 tests]
+  propertyToCValue_11: [OK, passed 100 tests]
+  propertyToCValue_12: [OK, passed 100 tests]
+  propertyToCValue_13: [OK, passed 100 tests]
+  propertyToCValue_14: [OK, passed 100 tests]
+  testFromCValuePrimitive_0: [OK]
+  testFromCValuePrimitive_1: [OK]
+  testFromCValueTest0: [OK]
+  testFromCValueTest1: [OK]
+  testFromCValueTest2: [OK]
+  testFromCValueTest3: [OK]
+  testFromCValueTest4: [OK]
+
+         Properties   Test Cases  Total       
+ Passed  15           7           22          
+ Failed  0            0           0           
+ Total   15           7           22          
+Test suite tests: PASS
+Test suite logged to: dist/test/simple-c-value-0.0.0.1-tests.log
