@@ -13,7 +13,10 @@ Version:             0.0.0.1
 Synopsis:            A simple C value type
 
 -- A longer description of the package.
--- Description:         
+Description: This library provides a very simple C like AST and conversion type classes. The classes use GHC.Generics and default signatures so you can painless convert to and from Haskell types. 
+
+    This is not a library for parsing C. There are plenty of great ones on Hackage though. This is meant to make the process of converting from a non-recursive Haskell value to a C value easier for data serialization tasks. 
+
 
 -- URL for the project homepage or repository.
 Homepage:            https://github.com/jfischoff/simple-c-value
