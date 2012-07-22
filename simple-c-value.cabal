@@ -62,11 +62,6 @@ Library
                  dlist >= 0.5,
                  ghc-prim
   
-  -- Modules not exported by this package.
-  -- Other-modules:       
-  
-  -- Extra tools (e.g. alex, hsc2hs, ...) needed to build the source.
-  -- Build-tools:   
 
 Test-Suite tests
   Hs-Source-Dirs: src, tests

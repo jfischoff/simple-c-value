@@ -25,6 +25,7 @@ import Debug.Trace
 import Debug.Trace.Helpers
 import Data.Tuple.Select
 import Control.Monad ((<=<))
+import Data.Binary
 
 debug = False
 
@@ -35,39 +36,67 @@ traceDebug msg x = if debug
 -- | A step in union path
 data Side = Lft
           | Rght
-          deriving(Show, Eq, Generic)
+          deriving(Show, Eq, Read, Ord, Data, Typeable, Generic)
 -- | This is used for the conversion from a CValue back to Haskell type. Ideally it should be
 --   and index, but unforunately this does not work with the way Generics creates its :+: binary tree.
 --   I'm leaving it here for now, but I might find a more elegant way to handle this.
 type UnionPath = [Side]
 
+deriving instance Data CChar
+deriving instance Data CSChar 
+deriving instance Data CUChar 
+deriving instance Data CShort 
+deriving instance Data CUShort
+deriving instance Data CInt  
+deriving instance Data CUInt 
+deriving instance Data CLong 
+deriving instance Data CULong
+deriving instance Data CPtrdiff
+deriving instance Data CSize
+deriving instance Data CWchar
+deriving instance Data CSigAtomic
+deriving instance Data CLLong
+deriving instance Data CULLong
+deriving instance Data CIntPtr
+deriving instance Data CUIntPtr
+deriving instance Data CIntMax
+deriving instance Data CUIntMax
+deriving instance Data CClock
+deriving instance Data CTime
+deriving instance Data CUSeconds
+deriving instance Data CSUSeconds
+deriving instance Data CFloat
+deriving instance Data CDouble
+
 -- | Primitive C values
-data PrimitiveValue = PChar CChar  
-                    | PSChar CSChar 
-                    | PUChar CUChar 
-                    | PShort CShort 
-                    | PUShort CUShort
-                    | PInt CInt  
-                    | PUInt CUInt 
-                    | PLong CLong 
-                    | PULong CULong
-                    | PPtrdiff CPtrdiff
-                    | PSize CSize
-                    | PWchar CWchar
+data PrimitiveValue = PChar      CChar  
+                    | PSChar     CSChar 
+                    | PUChar     CUChar 
+                    | PShort     CShort 
+                    | PUShort    CUShort
+                    | PInt       CInt  
+                    | PUInt      CUInt 
+                    | PLong      CLong 
+                    | PULong     CULong
+                    | PPtrdiff   CPtrdiff
+                    | PSize      CSize
+                    | PWchar     CWchar
                     | PSigAtomic CSigAtomic
-                    | PLLong CLLong
-                    | PULLong CULLong
-                    | PIntPtr CIntPtr
-                    | PUIntPtr CUIntPtr
-                    | PIntMax CIntMax
-                    | PUIntMax CUIntMax
-                    | PClock CClock
-                    | PTime CTime
-                    | PUSeconds CUSeconds
+                    | PLLong     CLLong
+                    | PULLong    CULLong
+                    | PIntPtr    CIntPtr
+                    | PUIntPtr   CUIntPtr
+                    | PIntMax    CIntMax
+                    | PUIntMax   CUIntMax
+                    | PClock     CClock
+                    | PTime      CTime
+                    | PUSeconds  CUSeconds
                     | PSUSeconds CSUSeconds
-                    | PFloat CFloat
-                    | PDouble CDouble
-                    deriving(Eq, Show, Generic)
+                    | PFloat     CFloat
+                    | PDouble    CDouble
+                    deriving(Eq, Show, Read, Ord, Data, Typeable, Generic)
+                    
+          
  
 -- | A generic C value
 data CValue = VStruct [CValue]
@@ -76,7 +105,7 @@ data CValue = VStruct [CValue]
             | VArray [CValue]
             | VMember CValue
             | Void
-            deriving(Show, Eq, Generic)
+            deriving(Show, Eq, Read, Ord, Data, Typeable, Generic)
             
 ------------------------------------------------------------------------------------
 -- | ToCValue Class
